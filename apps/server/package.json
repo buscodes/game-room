@@ -1,0 +1,23 @@
+{
+  "name": "@salon/server",
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/main/server.ts",
+    "start": "tsx src/main/server.ts"
+  },
+  "dependencies": {
+    "@salon/contracts": "*",
+    "@salon/domain": "*",
+    "chess.js": "^1.4.0",
+    "express": "^5.2.1",
+    "stockfish": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15"
+  }
+}

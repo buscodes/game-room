@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-accent: #34d399;
+  --color-accent-strong: #10b981;
+  --color-ink: #0a0d12;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: #e4e4e7;
+  background-color: #0a0d12;
+  background-image:
+    radial-gradient(60rem 40rem at 10% -10%, rgba(16, 185, 129, 0.16), transparent 60%),
+    radial-gradient(50rem 40rem at 110% 10%, rgba(99, 102, 241, 0.14), transparent 60%),
+    radial-gradient(40rem 30rem at 50% 120%, rgba(16, 185, 129, 0.08), transparent 60%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cam efektli kart/panel */
+.panel {
+  background: rgba(24, 28, 36, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 40px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Satranç tahtası çerçevesi: ince, koyu, yuvarlak köşeli */
+.board-frame {
+  padding: clamp(6px, 1vw, 12px);
+  border-radius: 18px;
+  background: linear-gradient(160deg, #1f2530, #12161d);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7);
+}
+.board-frame > div:first-child {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Kart masası: gerçek çuha dokusu, modern çerçeve */
+.felt {
+  background-color: #0b4a2b;
+  background-image:
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.07), rgba(0, 0, 0, 0.5)), url("/assets/table/felt.jpg");
+  background-size: cover, 500px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.55),
+    0 30px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+.playing-card {
+  aspect-ratio: 240 / 336;
+  border-radius: 7%/5%;
+  background: #fff;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 6px 14px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 12px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  cursor: pointer;
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: #052e1f;
+  box-shadow: 0 8px 24px -8px rgba(52, 211, 153, 0.6);
+}
+.btn-primary:hover:not(:disabled) {
+  background: #6ee7b7;
+}
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e4e4e7;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
